@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog-detalles{% endblock %}
+
+{% block content %}
+<div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-top: 20px;"></div>
+        <div class="title">
+            <h2>Categorias</h2>
+        </div>
+<section>
+    <div style="padding-bottom: 10px; width:75%; margin:auto; text-align:center; color:rgb(22, 22, 22);">
+        
+        {% for category in categories %}
+                  
+
+           <a href="{% url 'blog_category' category.pk %}">
+              {{category.name}}
+            </a>&nbsp;&nbsp;&nbsp;
+           
+        {% endfor %}
+    </div>
+</section><hr style="width: 50%; margin: auto;">
+
+<div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-top: 20px;"></div>
+<div class="title" style="margin-bottom: 0px;">
+    <h2>{{post.title}}</h2>
+</div>
+<div class="card border-white mb-3" style="margin-bottom: 0px; padding-bottom: 0px;"> 
+    <div style="text-align:left; font-size: 1.2em; padding-bottom: 5px;">
+        <small>
+         &nbsp;Autor: {{post.author}}<br>
+         &nbsp;categorias: 
+         {% for category in post.category.all %}
+                 <a href="{% url 'blog_category' category.pk %}"> {{category.name}}</a>&nbsp;&nbsp;
+         {% endfor %}<br>
+         &nbsp;creado: {{post.created_at}}
+         </small> 
+    </div> 
+    <img class="w-100" src="{{post.image.url}}" alt="" style="width:50%; height: 500px; border-radius: 20px 20px;">
+        
+      
+    <div class="card-body" style="text-align: justify; text-indent: 20px; font-size: 1.2em;">
+        <p>
+            {{post.content}}
+
+        </p>       
+        
+    </div>
+</div>
+<hr style="margin-top: 0px; width: 50%; margin: auto;">
+     
+  
+
+<div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-top: 10px;"></div>
+        <div class="title" style="margin-bottom: 0px; padding-bottom: opx;">
+            <h2>Deja un comentario</h2>
+        </div><br>
+        <div class="card border-white" style="margin-top: 0px;">
+            <div class="card-body">          
+                <form action="/blog/post/{{ post.pk }}/" method="post"> 
+                {% csrf_token %}         
+                
+                {% include 'includes/form.html' %}
+                <button type="submit" class="btn btn-primary btn-block">Subir comentario</button>
+              </form>
+            </div><hr>        
+          </div>
+
+
+{% if comments.count > 0 %}
+    <div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-top: 10px;"></div>
+    <div class="title" style="margin-bottom: 0px;">
+        <h2>Comentarios:</h2>
+    </div>
+    <div style="font-size: 1.3em; width: 60%; margin: auto; text-indent: 15px; text-align: justify;">
+    {% for comment in comments %}
+        <p>
+            El {{comment.created_on.date }}&nbsp;
+            <b>{{ comment.author }}</b>&nbsp; escribió:
+        </p>
+        <p>{{ comment.body }}</p>
+        <hr>
+    {% endfor %}
+
+    {% else %}
+    <div style="font-size: 1.5em; padding-top: 10px; padding-bottom: 10px; width: 50%; margin: auto; text-align: center;">
+        <small>No hay comentarios para mostrar. El tuyo será el primero :)</small>
+    </div> 
+{% endif %}
+</div>
+
+
+        
+
+{% endblock %}

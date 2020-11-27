@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block content %}
+ 
+    <div class="contact-info">
+      
+
+      <div class="messege">
+        <p class="mb-3" style="font-size: 1.2em;">
+          Puden comunicarse conmigo para:
+          <ul style="font-size: 1.2em;">
+            <li>Aconsejarme a mejorar algo puntual del website.</li>
+            <li>Recomendarme agregar algo nuevo al sitio web, puede ser otra página u otra sección en alguna de las que ya estan.</li>
+            <li>Informarme que desean que agregue un post u otra categoria al blog.</li>
+            <li>Retarme a crear un nuevo proyecto</li>
+            <li>Informarme de algún error que hayan notado en el sitio web</li>
+            <li>Cuelquier critica constructiva</li>
+          </ul>
+        </p>
+        <br><br><br><br><br><br><br>
+        <p class="mb-3" style="font-size: 1.2em;">
+          Pueden encontrarme en:
+        </p>
+        <div style="width: 80%;  margin: auto; text-align: center;">
+        
+        <div style="margin-left: 20px; width: 50px; height: 50px; float: left; border-radius: 10px 10px;">
+          <a href="https://www.facebook.com/webdeveloper1201/">
+            <img class="w-100" src="{% static 'img/social_networks/Facebook.png' %}" alt="">
+          </a>
+        </div>
+        <div style="margin-left: 20px; width: 50px; height: 50px; float: left; border-radius: 10px 10px;">
+          <a href="https://www.instagram.com/developer3395/">
+            <img class="w-100" src="{% static 'img/social_networks/instagram.png' %}" alt="">
+          </a>
+        </div>
+        <div style="margin-left: 20px; width: 50px; height: 50px; float: left; border-radius: 10px 10px;">
+          <a href="https://www.linkedin.com/in/jhonnywd/">
+            <img class="w-100" src="{% static 'img/social_networks/Linkedin.png' %}" alt="">
+          </a>
+        </div>
+        <div style="margin-left: 20px; width: 50px; height: 50px; float: left; border-radius: 10px 10px;">
+          <a href="https://twitter.com/Jhonny85714709?s=08/">
+            <img class="w-100" src="{% static 'img/social_networks/twitter.png' %}" alt="">
+          </a>
+        </div>
+      </div>
+      </div>
+    </div>
+      
+    <div class="contact-form">
+        
+
+
+        <div class="card">
+          <div class="card-body">          
+            <form method="POST" novalidate>{% csrf_token %}           
+              <input type="hidden" name="next" value="{{ next }}">
+              {% include 'includes/form.html' %}
+              <button typ="submit" class="btn btn-primary btn-block">Enviar</button>
+            </form>
+          </div>        
+        </div><br>
+    </div>
+ 
+{% endblock %}

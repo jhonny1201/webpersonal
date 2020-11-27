@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}portfolio{% endblock %}
+
+{% block content %}
+    <div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-top: 20px;"></div>
+        <div class="title">
+            <h2>Proyectos</h2>
+        </div>
+
+<div class="row">
+    {% for project in projects %}
+        <div class="col-md-4" style="margin-top: 20px;">
+            <div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto;"></div>
+
+            <div class="card mb-4" style="width: 90%;">
+                
+                <img class="card-img-top w-100" src="{{project.image.url}}" style="min-height: 250px; max-height: 250px;">
+                <div class="card-body" style="text-align: justify; text-indent: 10px;">
+                    <h5 class="card-title"><b>{{project.title}}</b></h5>
+                    <p class="card-text">{{ project.details | slice:":100" }}...</p>
+                    <a href="{% url 'portfolio_detail' project.pk %}" class="btn btn-primary">
+                        Detalles
+                    </a>
+                </div>            
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

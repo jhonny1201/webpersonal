@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}project{% endblock %}
+
+{% block content %}
+<div class="title" style="text-align: left; width: 50%; margin-top: 20px; ">
+    <div style=" width: 15px; height: 15px; border-radius: 50%; background: green; margin: left; margin-left: 64px;"></div>
+    <h2>{{project.title}}</h2>
+</div>
+    <div class="row">
+        <div class="col-md-8" style="margin-bottom: 20px;">
+            
+            <img src="{{project.image.url}}" alt="" width="100%" style="border-radius: 20px 20px;">
+            
+        </div>
+        <div class="col-md-4">
+            <div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-bottom: 5px;"></div>
+
+            <h2 style="text-align: center; font-family: 'Times New Roman', Times, serif; text-shadow: 3px 3px #e79595; color: #362121;"><b>Acerca del proyecto</b></h2>
+            <p style="text-align: justify; text-indent: 25px;">{{project.details}}</p>
+            <hr>
+            <div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-bottom: 5px;"></div>
+
+            <h2 style="text-align: center; font-family: 'Times New Roman', Times, serif; text-shadow: 3px 3px #e79595; color: #362121;"><b>Tecnologías usadas</b></h2>
+            <p style="text-align: center;">{{project.technology}}</p>
+        </div>
+    </div
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'App/base.html' %}
+
+{% block title %}Blog-{{category.name}}{% endblock %}
+
+{% block breadcrumb %}<a class="link" href="{% url 'blog' %}">Blog</a>-{{category.name}}{% endblock %}
+
+{% block content %}
+{% for post in category.posts.all %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro" style="padding-bottom: 15rem; position: center;">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.image.url}}" alt="" style="width:60%; height:60%;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="padding-bottom: 15rem;">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower" style="text-align:inherit;">{{post.title}}</span>
+            
+          </h2>
+          <p class="mb-3">{{post.content}}</p>
+         <div style="text-align:left; font-size:0.8em;">
+            Autor:{{post.author}}
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+   
+
+{% endblock%}

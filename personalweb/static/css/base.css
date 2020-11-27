@@ -1,0 +1,160 @@
+
+div.container .posts .image{
+  float: left;
+  width: 40%;
+  margin-left: 5%;
+  margin-top: 20px;
+  border-radius: 20px 20px;
+  
+}
+
+div.container .posts .content h2{
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 3px 3px #e79595;
+  color: #362121;
+  text-align: center;
+}
+div.container .posts .image .w-100{
+  border-radius: 20px 20px;
+}
+
+div.container .posts .content .footer{
+  text-align: start;  
+}
+
+div.container .posts .content{
+  width: 50%;
+  height: 350px;
+  border-radius: 20px 20px;
+  background: rgb(235, 227, 227);
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  float:center;
+  margin-left: 39%;
+  margin-top: 55px;
+}
+
+div.container .card{
+ /* background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSq5Nis9h25IfV9TXQXy4p6TSHBJ70xYGiWzw&usqp=CAU);*/
+  filter: alpha(opacity=50);
+  -ms-filter: "progrid:DXImageTransform.Microsoft.Alpha(opacity=50)";
+  -khtml-opacity: 0.5;
+  
+  /*background-position: right bottom;*/
+ 
+}
+div.container .title{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+div.container .title h2{
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 3px 3px #e79595;
+  color: #362121;
+}
+
+div.top .col-3{
+  display: block;  
+  width: 30%;
+  padding-top: 10px; 
+  padding-left: 50px;  
+  padding-bottom: 10px;
+  text-align: left;
+  float: left;
+  margin-bottom: 0px;
+}
+
+div.top .col-3 .w-100{
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border-color: black;
+  
+}
+
+div.top .col-3 h2{
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 3px 3px #e79595;
+  color: #362121;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+
+div.top .col-3 p.sub-title{
+  text-align: center;
+  color: #968c8c;
+  margin: 0;
+  padding: 0;
+  margin: auto;
+}
+
+
+div.top .col-3 .localization{
+  float: left;
+  margin-right: 5px; 
+  width: 30px;
+  height: 30px;
+  margin-left: 0px;
+
+}
+
+div.top .col-3 .localization .w-100{
+  width: 25px;
+  height: 25px;
+  padding-left: 0px;
+}
+
+div.vr{
+  width: 5px;
+  height: 100%;
+  background-color: rgb(116, 173, 116);
+  position: absolute;
+  left: 248px;
+  display: block;
+  top: 5px;
+  bottom: 5px;
+  
+}
+
+div.container .card{
+  width: 60%;  
+  margin: auto;
+  margin-top: 10px;
+
+
+}
+
+div.container .card h2{
+  font-family: 'Times New Roman', Times, serif;
+  text-shadow: 3px 3px #e79595;
+  color: #362121;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+}
+div.contact-form {
+  float: right;
+  width: 50%;
+  margin-right: 0px;
+}
+
+div.contact-form .card{
+  /*background-image: url('../img/elegant_grid.png')*/
+}
+
+div.contact-form .card{
+  border-radius: 25px 25px;
+  width: 90%;
+}
+
+div.contact-info{
+  float: left;
+  width: 50%;
+  margin-top: 200px;
+}
+
+
+

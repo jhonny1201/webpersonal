@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog-{{category.name}}{% endblock %}
+
+{% block content %}
+
+  <div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-top: 20px;"></div>
+  <div class="title">
+      <h2>Categorias</h2>
+  </div>
+  <section>
+  <div style="width:75%; margin:auto; text-align:center; color:rgb(22, 22, 22);">
+
+    {% for category in categories %}         
+
+      <a href="{% url 'blog_category' category.pk %}">
+          {{category.name}}
+        </a>&nbsp;&nbsp;&nbsp;      
+    {% endfor %}
+  </div>
+
+<div style="width: 15px; height: 15px; border-radius: 50%; background: green; margin: auto; margin-top: 20px;"></div>
+        <div class="title" style="margin-bottom: 0px;">
+            <h2>{{category.name}}</h2>
+        </div>
+
+    {% for post in category.posts.all %}
+        
+    <section class="page-section clearfix" style="margin-top: 15px;">
+        <div class="container">
+            <div class="intro" style="position: center;">
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.image.url}}" alt="" style="width:50%; height: 500px; border-radius: 20px 20px;">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded" style="min-height: 450px; max-height: 490px;
+                        background: #bdc3c7;
+                        background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  
+                        background: linear-gradient(to right, #2c3e50, #bdc3c7);
+                        margin-left: 48%; margin-top: 20px;">
+              <h2 class="section-heading mb-4" >
+                <span class="section-heading-lower">{{post.title}}</span>
+                
+              </h2>
+              <p class="mb-3" style="text-indent: 20px; text-align: justify;">{{post.content|slice:":200"}}...</p>
+             <div style="text-align:left; font-size: 1.2em; padding-bottom: 5px;">
+               <small>Autor: {{post.author}}<br>
+                categorias: 
+                {% for category in post.category.all %}
+                        <a href="{% url 'blog_category' category.pk %}"> {{category.name}}</a>&nbsp;&nbsp;
+                {% endfor %}<br>
+                    creado: {{post.created_at}}
+                </small> 
+                <br>
+                <a href="{% url 'blog_detail' post.pk %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style="bottom: 0; position: absolute; left: 0; right: 0;">Ver detalles</a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        
+    {% endfor %}
+{% endblock %}
